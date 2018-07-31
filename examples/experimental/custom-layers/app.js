@@ -28,32 +28,32 @@ const map = new mapboxgl.Map({
 });
 
 map.on('load', () => {
-
   map.addLayer({
-    'id': '3d-buildings',
-    'source': 'composite',
+    id: '3d-buildings',
+    source: 'composite',
     'source-layer': 'building',
-    'filter': ['==', 'extrude', 'true'],
-    'type': 'fill-extrusion',
-    'minzoom': 15,
-    'paint': {
+    filter: ['==', 'extrude', 'true'],
+    type: 'fill-extrusion',
+    minzoom: 15,
+    paint: {
       'fill-extrusion-color': '#ccc',
-      'fill-extrusion-height': ["get", "height"]
+      'fill-extrusion-height': ['get', 'height']
     }
   });
 
-  map.addLayer(new DeckLayer({
-    layers: [
-      new GeoJsonLayer({
-        data: GEOJSON,
-        stroked: true,
-        filled: true,
-        lineWidthMinPixels: 2,
-        opacity: 0.4,
-        getLineColor: () => [255, 100, 100],
-        getFillColor: () => [200, 160, 0, 180]
-      })
-    ]
-  }));
-
+  map.addLayer(
+    new DeckLayer({
+      layers: [
+        new GeoJsonLayer({
+          data: GEOJSON,
+          stroked: true,
+          filled: true,
+          lineWidthMinPixels: 2,
+          opacity: 0.4,
+          getLineColor: () => [255, 100, 100],
+          getFillColor: () => [200, 160, 0, 180]
+        })
+      ]
+    })
+  );
 });

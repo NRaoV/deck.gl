@@ -18,11 +18,11 @@ export default class DeckLayer {
       zoom: this.map.getZoom(),
       bearing: this.map.getBearing(),
       pitch: this.map.getPitch()
-    }
+    };
   }
 
   onAdd(map, gl) {
-    console.log('onAdd', map, gl);
+    // console.log('onAdd', map, gl);
 
     this.map = map;
     this.deck = new Deck({
@@ -39,7 +39,7 @@ export default class DeckLayer {
 
   render3D(gl, matrix) {
     const viewState = this._getViewState();
-    console.log('render3D', viewState, matrix);
+    // console.log('render3D', viewState, matrix);
 
     this.deck.setProps({viewState});
     this.deck._drawLayers();
